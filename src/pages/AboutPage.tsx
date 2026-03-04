@@ -32,7 +32,9 @@ export function AboutPage() {
                 Read my full story
               </button>
               <a
-                href="#"
+                href="/resume-march-3-final.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-sm font-medium text-white transition hover:bg-gray-800"
               >
                 View my resume
