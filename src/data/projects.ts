@@ -127,7 +127,7 @@ export const projects: Project[] = [
       },
     ],
     impact:
-      'The final campaign bridges the gap between high-fashion artistry and public accessibility.',
+      'the final campaign bridges the gap between high-fashion artistry and public accessibility.',
   },
   {
     id: 4,

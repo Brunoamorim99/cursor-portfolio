@@ -1,4 +1,5 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import { Mail, Linkedin, Instagram, Github } from 'lucide-react';
 
 interface FormState {

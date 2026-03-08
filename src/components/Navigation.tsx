@@ -21,7 +21,7 @@ export function Navigation() {
         <Link to="/" className="flex items-center">
           <img
             src="/Bruno_AmorimDosSantos_Assignment01-PersonalBrandingPart2.svg"
-            alt="Bruno Amorim dos Santos logo"
+            
             className="h-10 w-auto"
           />
         </Link>
