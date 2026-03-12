@@ -5,6 +5,7 @@ export interface Project {
   category: string;
   year: string;
   description: string;
+  image?: string;
   tags: string[];
   problem: string;
   challenges: string;
@@ -24,6 +25,7 @@ export const projects: Project[] = [
     id: 1,
     slug: 'panday-project',
     title: 'Panday Project',
+    image: '/panday-logo.png',
     category: 'Interactive AI Application',
     year: '2024',
     description:
@@ -64,6 +66,7 @@ export const projects: Project[] = [
     id: 2,
     slug: 'aidile-project',
     title: 'Aidile Project',
+    image: '/aidile-logo.png',
     category: 'Mobile App Design',
     year: '2024',
     description:
@@ -99,6 +102,7 @@ export const projects: Project[] = [
     id: 3,
     slug: 'issey-miyake-poster',
     title: 'Issey Miyake Design Museum Poster',
+    image: '/issey-miyake-poster.png',
     category: 'Graphic Design',
     year: '2024',
     description:
@@ -133,6 +137,7 @@ export const projects: Project[] = [
     id: 4,
     slug: 'bandit-breakout',
     title: 'Bandit Breakout Game',
+    image: '/bandit-logo.svg',
     category: 'Interactive Game Design',
     year: '2024',
     description:

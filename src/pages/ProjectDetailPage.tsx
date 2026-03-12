@@ -2,6 +2,14 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 import { projects } from '../data/projects';
 
+function ImageFrame({ label }: { label: string }) {
+  return (
+    <div className="flex aspect-video items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white px-4 text-center text-xs font-medium uppercase tracking-[0.12em] text-gray-500">
+      {label}
+    </div>
+  );
+}
+
 export function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find((p) => p.slug === slug);
@@ -73,6 +81,9 @@ export function ProjectDetailPage() {
             {project.description}
           </p>
         </section>
+        <div className="mb-10">
+          <ImageFrame label="Overview Image Placeholder" />
+        </div>
 
         <section className="mb-10 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
@@ -82,6 +93,10 @@ export function ProjectDetailPage() {
             {project.problem}
           </p>
         </section>
+        <div className="mb-10 grid gap-4 md:grid-cols-2">
+          <ImageFrame label="Problem Image Placeholder 1" />
+          <ImageFrame label="Problem Image Placeholder 2" />
+        </div>
 
         <section className="mb-10 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
@@ -91,6 +106,9 @@ export function ProjectDetailPage() {
             {project.research}
           </p>
         </section>
+        <div className="mb-10">
+          <ImageFrame label="Research Image Placeholder" />
+        </div>
 
         <section className="mb-10 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
@@ -109,6 +127,23 @@ export function ProjectDetailPage() {
             {project.designProcess}
           </p>
         </section>
+        <div className="mb-10 grid gap-4 md:grid-cols-3">
+          <ImageFrame label="Process Placeholder 1" />
+          <ImageFrame label="Process Placeholder 2" />
+          <ImageFrame label="Process Placeholder 3" />
+        </div>
+
+        <section className="mb-10 space-y-4">
+          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+            The solution
+          </h2>
+          <p className="text-base leading-relaxed text-gray-700">
+            {project.solution}
+          </p>
+        </section>
+        <div className="mb-10">
+          <ImageFrame label="Solution Image Placeholder" />
+        </div>
 
         <section className="mb-10 space-y-6">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
@@ -136,6 +171,9 @@ export function ProjectDetailPage() {
             {project.impact}
           </p>
         </section>
+        <div className="mb-12">
+          <ImageFrame label="Final Showcase Placeholder" />
+        </div>
 
         {project.liveUrl && (
           <div className="mb-12 flex justify-center">

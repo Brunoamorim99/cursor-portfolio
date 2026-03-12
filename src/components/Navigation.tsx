@@ -21,8 +21,8 @@ export function Navigation() {
         <Link to="/" className="flex items-center">
           <img
             src="/Bruno_AmorimDosSantos_Assignment01-PersonalBrandingPart2.svg"
-            
-            className="h-10 w-auto"
+            alt=""
+            className="h-16 md:h-20 w-auto shrink-0"
           />
         </Link>
 

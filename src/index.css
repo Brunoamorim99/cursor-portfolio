@@ -62,6 +62,16 @@ h3 {
   background-color: #050509;
 }
 
+/* Gradient border utility: grey → colourful on hover */
+.gradient-border {
+  border: 2px solid #d1d5db;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.gradient-border:hover {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--accent-pink);
+}
+
 /* Dark-mode readability overrides */
 [data-theme="dark"] .text-gray-900 {
   color: #f9fafb;

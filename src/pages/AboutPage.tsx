@@ -42,12 +42,14 @@ export function AboutPage() {
             </div>
           </div>
 
-          <div className="mx-auto h-64 w-full max-w-sm rounded-3xl bg-gradient-to-br from-violet-700 via-pink-500 to-amber-400 p-[2px]">
-            <div className="flex h-full items-center justify-center rounded-3xl bg-white">
-              <p className="px-6 text-center text-sm leading-relaxed text-gray-600">
-                Portrait placeholder — export your profile photo from Figma and
-                place it here.
-              </p>
+          <div className="relative mx-auto h-80 w-full max-w-sm overflow-hidden rounded-3xl bg-gradient-to-br from-violet-700 via-pink-500 to-amber-400 p-[2px]">
+            <div className="relative h-full overflow-hidden rounded-3xl bg-white">
+              <img
+                src="/profile-photo.png"
+                alt="Bruno Amorim dos Santos"
+                className="h-full w-full object-cover"
+                style={{ objectPosition: 'center 28%', transform: 'scale(1.25)' }}
+              />
             </div>
           </div>
         </section>

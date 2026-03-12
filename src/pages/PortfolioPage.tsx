@@ -24,13 +24,25 @@ export function PortfolioPage() {
                 index % 2 === 1 ? 'md:[&>div:first-child]:order-2' : ''
               }`}
             >
-              <div className="aspect-video overflow-hidden rounded-2xl bg-gray-100">
-                <div className="flex h-full items-center justify-center px-6 text-center text-sm text-gray-400">
-                  Project visual — replace with exported Figma cover for{' '}
-                  <span className="ml-1 font-medium text-gray-600">
-                    {project.title}
-                  </span>
-                </div>
+              <div
+                className={`aspect-video overflow-hidden rounded-2xl ${
+                  project.image ? 'bg-white' : 'bg-gray-100'
+                }`}
+              >
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-contain p-4"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center px-6 text-center text-sm text-gray-400">
+                    Project visual — replace with exported Figma cover for{' '}
+                    <span className="ml-1 font-medium text-gray-600">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className="space-y-4">
