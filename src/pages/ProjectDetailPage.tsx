@@ -21,14 +21,22 @@ export function ProjectDetailPage() {
   return (
     <div className="bg-white px-6 pb-20">
       <div className="mx-auto max-w-5xl pt-4">
-        {/* hero visual placeholder */}
-        <div className="mb-10 h-64 w-full rounded-3xl bg-gray-100">
-          <div className="flex h-full items-center justify-center px-6 text-sm text-gray-400">
-            Replace this area with your main Figma export for{' '}
-            <span className="ml-1 font-medium text-gray-600">
-              {project.title}
-            </span>
-          </div>
+        {/* hero visual */}
+        <div className="mb-10 overflow-hidden rounded-3xl bg-white">
+          {project.caseStudyHeroImage ? (
+            <img
+              src={project.caseStudyHeroImage}
+              alt={`${project.title} hero`}
+              className="h-full max-h-[520px] w-full object-contain bg-white"
+            />
+          ) : (
+            <div className="flex aspect-video items-center justify-center px-6 text-sm text-gray-400">
+              Replace this area with your main Figma export for{' '}
+              <span className="ml-1 font-medium text-gray-600">
+                {project.title}
+              </span>
+            </div>
+          )}
         </div>
 
         <header className="mb-10">

@@ -39,8 +39,8 @@ export function HomePage() {
         {/* Big name */}
         <h1
           ref={nameRef}
-          style={{ fontFamily: '"Pachang", sans-serif', fontWeight: 800 }}
-          className="text-[clamp(3.5rem,12vw,9rem)] leading-[0.95] tracking-tight text-[var(--text)]"
+          style={{ fontFamily: '"Pachang", sans-serif' }}
+          className="text-[clamp(3.5rem,12vw,9rem)] leading-[0.95] tracking-tight font-extrabold text-[var(--text)]"
         >
           Bruno
           <br />

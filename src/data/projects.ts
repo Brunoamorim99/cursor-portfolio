@@ -6,6 +6,7 @@ export interface Project {
   year: string;
   description: string;
   image?: string;
+  caseStudyHeroImage?: string;
   tags: string[];
   problem: string;
   challenges: string;
@@ -26,6 +27,7 @@ export const projects: Project[] = [
     slug: 'panday-project',
     title: 'Panday Project',
     image: '/panday-logo.png',
+    caseStudyHeroImage: '/panday-case-hero.png',
     category: 'Interactive AI Application',
     year: '2024',
     description:
@@ -67,6 +69,7 @@ export const projects: Project[] = [
     slug: 'aidile-project',
     title: 'Aidile Project',
     image: '/aidile-logo.png',
+    caseStudyHeroImage: '/aidile-case-hero.png',
     category: 'Mobile App Design',
     year: '2024',
     description:
@@ -103,6 +106,7 @@ export const projects: Project[] = [
     slug: 'issey-miyake-poster',
     title: 'Issey Miyake Design Museum Poster',
     image: '/issey-miyake-poster.png',
+    caseStudyHeroImage: '/museum-case-hero.png',
     category: 'Graphic Design',
     year: '2024',
     description:
@@ -138,6 +142,7 @@ export const projects: Project[] = [
     slug: 'bandit-breakout',
     title: 'Bandit Breakout Game',
     image: '/bandit-logo.svg',
+    caseStudyHeroImage: '/bandit-case-hero.png',
     category: 'Interactive Game Design',
     year: '2024',
     description:
@@ -167,8 +172,7 @@ export const projects: Project[] = [
     ],
     impact:
       'The game recreates tabletop atmosphere in a digital format through cohesive design and sound.',
-    liveUrl:
-      'https://www.figma.com/design/Cb3Z0tQ6L83VyVSXv0G2VH/prototyping?node-id=0-1',
+    liveUrl: 'https://bandit-breakout.vercel.app/',
   },
 ];
 
