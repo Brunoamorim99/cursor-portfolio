@@ -117,6 +117,16 @@ export const projects: Project[] = [
     title: 'Bandit Breakout Game',
     image: '/bandit-logo.svg',
     caseStudyHeroImage: '/bandit-case-hero.png',
+    caseStudyImages: [
+      '/bandit-detail-01.mp4',
+      '/bandit-detail-02.png',
+      '/bandit-detail-03.png',
+      '/bandit-detail-04.png',
+      '/bandit-detail-05.png',
+      '/bandit-detail-06.png',
+      '',
+      '/bandit-detail-01.mp4',
+    ],
     category: 'Interactive Game Design',
     year: '2024',
     description:

@@ -4,9 +4,20 @@ import { projects } from '../data/projects';
 
 function ImageFrame({ label, src }: { label: string; src?: string }) {
   if (src) {
+    const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(src);
+
     return (
       <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
-        <img src={src} alt={label} className="h-full w-full object-contain bg-white" />
+        {isVideo ? (
+          <video
+            src={src}
+            controls
+            preload="metadata"
+            className="h-full w-full object-contain bg-white"
+          />
+        ) : (
+          <img src={src} alt={label} className="h-full w-full object-contain bg-white" />
+        )}
       </div>
     );
   }

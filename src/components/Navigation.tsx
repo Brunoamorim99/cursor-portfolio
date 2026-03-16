@@ -17,13 +17,13 @@ export function Navigation() {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-[var(--primary)] text-white backdrop-blur dark:border-gray-800 dark:bg-black/80">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
         <Link to="/" className="ml-12 flex items-center md:ml-2">
           <img
             src="/nav-logo.png"
             alt=""
-            className="h-9 w-auto shrink-0 object-contain md:h-11"
-            style={{ transform: 'translateX(-24px) scale(6)', transformOrigin: 'right center' }}
+            className="h-16 w-auto shrink-0 object-contain md:h-20"
+            style={{ transform: 'translateY(6px)', transformOrigin: 'left center' }}
           />
         </Link>
 
