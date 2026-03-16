@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   image?: string;
   caseStudyHeroImage?: string;
+  caseStudyImages?: string[];
   tags: string[];
   problem: string;
   challenges: string;
@@ -28,6 +29,15 @@ export const projects: Project[] = [
     title: 'Panday Project',
     image: '/panday-logo.png',
     caseStudyHeroImage: '/panday-case-hero.png',
+    caseStudyImages: [
+      '/panday-detail-01.png',
+      '/panday-detail-02.png',
+      '/panday-detail-03.png',
+      '/panday-detail-04.png',
+      '/panday-detail-05.png',
+      '/panday-detail-06.png',
+      '/panday-detail-07.png',
+    ],
     category: 'Interactive AI Application',
     year: '2024',
     description:
@@ -66,6 +76,80 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    slug: 'issey-miyake-poster',
+    title: 'Issey Miyake Design Museum Poster',
+    image: '/issey-miyake-poster.png',
+    caseStudyHeroImage: '/museum-case-hero.png',
+    category: 'Graphic Design',
+    year: '2024',
+    description:
+      'A series of posters for a fictitious exhibition showcasing the work of Issey Miyake, connecting high fashion and everyday practicality.',
+    tags: ['Graphic Design', 'Typography', 'Brand Identity'],
+    problem:
+      'High-fashion exhibits can feel unapproachable, failing to connect the artist\'s work to everyday life.',
+    challenges:
+      'The visual strategy needed to honor Miyake\'s "Pleats Please" aesthetic while preserving legibility for event promotion.',
+    solution:
+      'Posters that blend avant-garde typography with structured layouts to clearly communicate the exhibition theme.',
+    research:
+      'Studied Miyake\'s design philosophy and translated his "A Piece of Cloth" concept into visual assets.',
+    designProcess:
+      'Developed a cohesive visual identity using minimalist typography and geometric layouts reflecting his style.',
+    keyFeatures: [
+      {
+        title: 'Minimalist Typography',
+        description:
+          'Clean, geometric compositions that echo Miyake\'s sculptural garments.',
+      },
+      {
+        title: 'Curated Visual Narrative',
+        description:
+          'Poster series that builds a narrative around innovation and practicality.',
+      },
+    ],
+    impact:
+      'the final campaign bridges the gap between high-fashion artistry and public accessibility.',
+    liveUrl: '/museum-poster-files.html',
+  },
+  {
+    id: 3,
+    slug: 'bandit-breakout',
+    title: 'Bandit Breakout Game',
+    image: '/bandit-logo.svg',
+    caseStudyHeroImage: '/bandit-case-hero.png',
+    category: 'Interactive Game Design',
+    year: '2024',
+    description:
+      'Interactive digital board game focusing on narrative, atmosphere, and gameplay flow.',
+    tags: ['Game Design', 'UX Design', 'Sound Design'],
+    problem:
+      'Many digital board games lack the rich atmosphere of physical tabletop experiences.',
+    challenges:
+      'Creating immersion in a limited digital canvas required tight integration between story, visuals, and interaction.',
+    solution:
+      'Atmospheric world-building with custom soundscapes and refined mechanics to deepen immersion.',
+    research:
+      'Narrative development and scenario design informed the game\'s structure and player journey.',
+    designProcess:
+      'Iterated on core mechanics and UI to smooth transitions between story beats and player actions.',
+    keyFeatures: [
+      {
+        title: 'Custom Soundscapes',
+        description:
+          'Audio that heightens tension and emotional stakes throughout gameplay.',
+      },
+      {
+        title: 'Narrative World-Building',
+        description:
+          'Rich plot structure, character scenarios, and environmental storytelling.',
+      },
+    ],
+    impact:
+      'The game recreates tabletop atmosphere in a digital format through cohesive design and sound.',
+    liveUrl: 'https://bandit-breakout.vercel.app/',
+  },
+  {
+    id: 4,
     slug: 'aidile-project',
     title: 'Aidile Project',
     image: '/aidile-logo.png',
@@ -101,78 +185,4 @@ export const projects: Project[] = [
       'High-fidelity wireframes and user flows position the app as a streamlined solution for modern apartment building governance.',
     liveUrl: 'https://comp-3170-project-iota.vercel.app/',
   },
-  {
-    id: 3,
-    slug: 'issey-miyake-poster',
-    title: 'Issey Miyake Design Museum Poster',
-    image: '/issey-miyake-poster.png',
-    caseStudyHeroImage: '/museum-case-hero.png',
-    category: 'Graphic Design',
-    year: '2024',
-    description:
-      'A series of posters for a fictitious exhibition showcasing the work of Issey Miyake, connecting high fashion and everyday practicality.',
-    tags: ['Graphic Design', 'Typography', 'Brand Identity'],
-    problem:
-      'High-fashion exhibits can feel unapproachable, failing to connect the artist’s work to everyday life.',
-    challenges:
-      'The visual strategy needed to honor Miyake’s “Pleats Please” aesthetic while preserving legibility for event promotion.',
-    solution:
-      'Posters that blend avant-garde typography with structured layouts to clearly communicate the exhibition theme.',
-    research:
-      'Studied Miyake’s design philosophy and translated his “A Piece of Cloth” concept into visual assets.',
-    designProcess:
-      'Developed a cohesive visual identity using minimalist typography and geometric layouts reflecting his style.',
-    keyFeatures: [
-      {
-        title: 'Minimalist Typography',
-        description:
-          'Clean, geometric compositions that echo Miyake’s sculptural garments.',
-      },
-      {
-        title: 'Curated Visual Narrative',
-        description:
-          'Poster series that builds a narrative around innovation and practicality.',
-      },
-    ],
-    impact:
-      'the final campaign bridges the gap between high-fashion artistry and public accessibility.',
-  },
-  {
-    id: 4,
-    slug: 'bandit-breakout',
-    title: 'Bandit Breakout Game',
-    image: '/bandit-logo.svg',
-    caseStudyHeroImage: '/bandit-case-hero.png',
-    category: 'Interactive Game Design',
-    year: '2024',
-    description:
-      'Interactive digital board game focusing on narrative, atmosphere, and gameplay flow.',
-    tags: ['Game Design', 'UX Design', 'Sound Design'],
-    problem:
-      'Many digital board games lack the rich atmosphere of physical tabletop experiences.',
-    challenges:
-      'Creating immersion in a limited digital canvas required tight integration between story, visuals, and interaction.',
-    solution:
-      'Atmospheric world-building with custom soundscapes and refined mechanics to deepen immersion.',
-    research:
-      'Narrative development and scenario design informed the game’s structure and player journey.',
-    designProcess:
-      'Iterated on core mechanics and UI to smooth transitions between story beats and player actions.',
-    keyFeatures: [
-      {
-        title: 'Custom Soundscapes',
-        description:
-          'Audio that heightens tension and emotional stakes throughout gameplay.',
-      },
-      {
-        title: 'Narrative World-Building',
-        description:
-          'Rich plot structure, character scenarios, and environmental storytelling.',
-      },
-    ],
-    impact:
-      'The game recreates tabletop atmosphere in a digital format through cohesive design and sound.',
-    liveUrl: 'https://bandit-breakout.vercel.app/',
-  },
 ];
-

@@ -2,7 +2,15 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 import { projects } from '../data/projects';
 
-function ImageFrame({ label }: { label: string }) {
+function ImageFrame({ label, src }: { label: string; src?: string }) {
+  if (src) {
+    return (
+      <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+        <img src={src} alt={label} className="h-full w-full object-contain bg-white" />
+      </div>
+    );
+  }
+
   return (
     <div className="flex aspect-video items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white px-4 text-center text-xs font-medium uppercase tracking-[0.12em] text-gray-500">
       {label}
@@ -18,8 +26,19 @@ export function ProjectDetailPage() {
     return <Navigate to="/portfolio" replace />;
   }
 
+  const caseStudyImages = project.caseStudyImages ?? [];
+  const imageAt = (index: number) => caseStudyImages[index];
+
   return (
     <div className="bg-white px-6 pb-20">
+      <Link
+        to="/portfolio"
+        aria-label="Back to portfolio"
+        className="fixed left-4 top-28 z-[59] inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white/80 text-gray-900 shadow-sm backdrop-blur transition hover:scale-105 hover:border-violet-700 hover:text-violet-700 dark:border-gray-700 dark:bg-black/70 dark:text-gray-100"
+      >
+        <ArrowLeft className="h-4 w-4" />
+      </Link>
+
       <div className="mx-auto max-w-5xl pt-4">
         {/* hero visual */}
         <div className="mb-10 overflow-hidden rounded-3xl bg-white">
@@ -81,79 +100,63 @@ export function ProjectDetailPage() {
           </div>
         </section>
 
-        <section className="mb-10 space-y-6">
+        {project.liveUrl && (
+          <div className="mb-12 flex justify-start">
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-700 via-pink-500 to-amber-400 px-8 py-3 text-sm font-medium text-white shadow-sm transition hover:shadow-lg hover:brightness-110"
+            >
+              Visit live project
+              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+        )}
+
+        <section className="mb-12 space-y-10">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             Overview
           </h2>
           <p className="text-base leading-relaxed text-gray-700">
             {project.description}
           </p>
-        </section>
-        <div className="mb-10">
-          <ImageFrame label="Overview Image Placeholder" />
-        </div>
 
-        <section className="mb-10 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             The problem
           </h2>
           <p className="text-base leading-relaxed text-gray-700">
             {project.problem}
           </p>
-        </section>
-        <div className="mb-10 grid gap-4 md:grid-cols-2">
-          <ImageFrame label="Problem Image Placeholder 1" />
-          <ImageFrame label="Problem Image Placeholder 2" />
-        </div>
 
-        <section className="mb-10 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             Research & discovery
           </h2>
           <p className="text-base leading-relaxed text-gray-700">
             {project.research}
           </p>
-        </section>
-        <div className="mb-10">
-          <ImageFrame label="Research Image Placeholder" />
-        </div>
 
-        <section className="mb-10 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             Challenges
           </h2>
           <p className="text-base leading-relaxed text-gray-700">
             {project.challenges}
           </p>
-        </section>
 
-        <section className="mb-10 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             Design process
           </h2>
           <p className="text-base leading-relaxed text-gray-700">
             {project.designProcess}
           </p>
-        </section>
-        <div className="mb-10 grid gap-4 md:grid-cols-3">
-          <ImageFrame label="Process Placeholder 1" />
-          <ImageFrame label="Process Placeholder 2" />
-          <ImageFrame label="Process Placeholder 3" />
-        </div>
 
-        <section className="mb-10 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             The solution
           </h2>
           <p className="text-base leading-relaxed text-gray-700">
             {project.solution}
           </p>
-        </section>
-        <div className="mb-10">
-          <ImageFrame label="Solution Image Placeholder" />
-        </div>
 
-        <section className="mb-10 space-y-6">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             Key features
           </h2>
@@ -169,9 +172,7 @@ export function ProjectDetailPage() {
               </div>
             ))}
           </div>
-        </section>
 
-        <section className="mb-12 space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             Impact & results
           </h2>
@@ -179,33 +180,26 @@ export function ProjectDetailPage() {
             {project.impact}
           </p>
         </section>
-        <div className="mb-12">
-          <ImageFrame label="Final Showcase Placeholder" />
-        </div>
 
-        {project.liveUrl && (
-          <div className="mb-12 flex justify-center">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-700 via-pink-500 to-amber-400 px-8 py-3 text-sm font-medium text-white shadow-sm transition hover:shadow-lg hover:brightness-110"
-            >
-              Visit live project
-              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
+        <section className="mb-12 space-y-4">
+          <h2 className="text-xl font-semibold text-gray-900 md:text-2xl">
+            Project Photo Gallery
+          </h2>
+          <ImageFrame label="Overview Image Placeholder" src={imageAt(0)} />
+          <div className="grid gap-4 md:grid-cols-2">
+            <ImageFrame label="Problem Image Placeholder 1" src={imageAt(1)} />
+            <ImageFrame label="Problem Image Placeholder 2" src={imageAt(2)} />
           </div>
-        )}
+          <ImageFrame label="Research Image Placeholder" src={imageAt(3)} />
+          <div className="grid gap-4 md:grid-cols-3">
+            <ImageFrame label="Process Placeholder 1" src={imageAt(4)} />
+            <ImageFrame label="Process Placeholder 2" src={imageAt(5)} />
+            <ImageFrame label="Process Placeholder 3" src={imageAt(6)} />
+          </div>
+          <ImageFrame label="Solution Image Placeholder" src={imageAt(7)} />
+          <ImageFrame label="Final Showcase Placeholder" src={imageAt(8)} />
+        </section>
 
-        <div className="flex justify-center">
-          <Link
-            to="/portfolio"
-            className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-sm font-medium text-white transition hover:bg-gray-800"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to portfolio
-          </Link>
-        </div>
       </div>
     </div>
   );
