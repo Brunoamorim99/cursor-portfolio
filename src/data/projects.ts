@@ -164,6 +164,14 @@ export const projects: Project[] = [
     title: 'Aidile Project',
     image: '/aidile-logo.png',
     caseStudyHeroImage: '/aidile-case-hero.png',
+    caseStudyImages: [
+      '/aidile-detail-01.png',
+      '/aidile-detail-02.png',
+      '/aidile-detail-03.png',
+      '/aidile-detail-04.png',
+      '/aidile-detail-05.png',
+      '/aidile-detail-06.png',
+    ],
     category: 'Mobile App Design',
     year: '2024',
     description:
