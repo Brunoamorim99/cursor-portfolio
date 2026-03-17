@@ -5,7 +5,7 @@ import { projects } from '../data/projects';
 export function PortfolioPage() {
   return (
     <div className="px-6 pb-20">
-      <section className="mx-auto max-w-6xl pt-4">
+      <section className="mx-auto max-w-6xl pt-24">
         <header className="mb-14">
           <h1 className="text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl">
             Portfolio

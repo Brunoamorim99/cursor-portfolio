@@ -6,7 +6,7 @@ export function AboutPage() {
 
   return (
     <div className="px-6 pb-20">
-      <div className="mx-auto max-w-6xl pt-4">
+      <div className="mx-auto max-w-6xl pt-24">
         <section className="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
           <div>
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">

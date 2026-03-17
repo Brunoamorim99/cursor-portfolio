@@ -36,7 +36,7 @@ export function ContactPage() {
 
   return (
     <div className="px-6 pb-20">
-      <div className="mx-auto max-w-6xl pt-4">
+      <div className="mx-auto max-w-6xl pt-24">
         <header className="mb-14">
           <h1 className="text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl">
             Let&apos;s work together
