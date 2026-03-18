@@ -80,6 +80,13 @@ export const projects: Project[] = [
     title: 'Issey Miyake Design Museum Poster',
     image: '/issey-miyake-poster.png',
     caseStudyHeroImage: '/museum-case-hero.png',
+    caseStudyImages: [
+      '/museum-detail-01.png',
+      '/museum-detail-02.png',
+      '/museum-detail-03.png',
+      '/museum-detail-04.png',
+      '/museum-detail-05.png',
+    ],
     category: 'Graphic Design',
     year: '2024',
     description:

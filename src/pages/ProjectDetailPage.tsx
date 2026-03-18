@@ -13,10 +13,10 @@ function ImageFrame({ label, src }: { label: string; src?: string }) {
             src={src}
             controls
             preload="metadata"
-            className="h-full w-full object-contain bg-white"
+            className="max-h-[620px] w-full object-contain bg-white"
           />
         ) : (
-          <img src={src} alt={label} className="h-full w-full object-contain bg-white" />
+          <img src={src} alt={label} className="max-h-[620px] w-full object-contain bg-white" />
         )}
       </div>
     );
@@ -25,6 +25,35 @@ function ImageFrame({ label, src }: { label: string; src?: string }) {
   return (
     <div className="flex aspect-video items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white px-4 text-center text-xs font-medium uppercase tracking-[0.12em] text-gray-500">
       {label}
+    </div>
+  );
+}
+
+function ImageRow({
+  sources,
+  labelPrefix,
+}: {
+  sources: string[];
+  labelPrefix: string;
+}) {
+  if (!sources.length) return null;
+
+  const gridClass =
+    sources.length > 1
+      ? sources.length === 2
+        ? 'md:grid-cols-2'
+        : 'md:grid-cols-3'
+      : '';
+
+  return (
+    <div className={`mt-5 grid gap-4 ${gridClass}`}>
+      {sources.map((src, index) => (
+        <ImageFrame
+          key={`${labelPrefix}-${index + 1}-${src}`}
+          label={`${labelPrefix} ${index + 1}`}
+          src={src}
+        />
+      ))}
     </div>
   );
 }
@@ -38,7 +67,18 @@ export function ProjectDetailPage() {
   }
 
   const caseStudyImages = project.caseStudyImages ?? [];
-  const imageAt = (index: number) => caseStudyImages[index];
+  const mediaAt = (index: number) => caseStudyImages[index];
+  const mediaByIndex = (indices: number[]) =>
+    indices
+      .map((index) => mediaAt(index))
+      .filter((src): src is string => Boolean(src && src.trim()));
+
+  const overviewImages = mediaByIndex([0]);
+  const problemImages = mediaByIndex([1, 2]);
+  const researchImages = mediaByIndex([3]);
+  const processImages = mediaByIndex([4, 5, 6]);
+  const solutionImages = mediaByIndex([7]);
+  const impactImages = mediaByIndex([8, 9]);
 
   return (
     <div className="bg-white px-6 pb-20">
@@ -126,89 +166,92 @@ export function ProjectDetailPage() {
         )}
 
         <section className="mb-12 space-y-10">
-          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
-            Overview
-          </h2>
-          <p className="text-base leading-relaxed text-gray-700">
-            {project.description}
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
-            The problem
-          </h2>
-          <p className="text-base leading-relaxed text-gray-700">
-            {project.problem}
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
-            Research & discovery
-          </h2>
-          <p className="text-base leading-relaxed text-gray-700">
-            {project.research}
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
-            Challenges
-          </h2>
-          <p className="text-base leading-relaxed text-gray-700">
-            {project.challenges}
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
-            Design process
-          </h2>
-          <p className="text-base leading-relaxed text-gray-700">
-            {project.designProcess}
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
-            The solution
-          </h2>
-          <p className="text-base leading-relaxed text-gray-700">
-            {project.solution}
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
-            Key features
-          </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {project.keyFeatures.map((feature) => (
-              <div key={feature.title} className="space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {feature.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-700">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+              Overview
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              {project.description}
+            </p>
+            <ImageRow sources={overviewImages} labelPrefix="Overview visual" />
           </div>
 
-          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
-            Impact & results
-          </h2>
-          <p className="text-base leading-relaxed text-gray-700">
-            {project.impact}
-          </p>
-        </section>
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+              The problem
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              {project.problem}
+            </p>
+            <ImageRow sources={problemImages} labelPrefix="Problem visual" />
+          </div>
 
-        <section className="mb-12 space-y-4">
-          <h2 className="text-xl font-semibold text-gray-900 md:text-2xl">
-            Project Photo Gallery
-          </h2>
-          <ImageFrame label="Overview Image Placeholder" src={imageAt(0)} />
-          <div className="grid gap-4 md:grid-cols-2">
-            <ImageFrame label="Problem Image Placeholder 1" src={imageAt(1)} />
-            <ImageFrame label="Problem Image Placeholder 2" src={imageAt(2)} />
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+              Research & discovery
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              {project.research}
+            </p>
+            <ImageRow sources={researchImages} labelPrefix="Research visual" />
           </div>
-          <ImageFrame label="Research Image Placeholder" src={imageAt(3)} />
-          <div className="grid gap-4 md:grid-cols-3">
-            <ImageFrame label="Process Placeholder 1" src={imageAt(4)} />
-            <ImageFrame label="Process Placeholder 2" src={imageAt(5)} />
-            <ImageFrame label="Process Placeholder 3" src={imageAt(6)} />
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+              Challenges
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              {project.challenges}
+            </p>
           </div>
-          <ImageFrame label="Solution Image Placeholder" src={imageAt(7)} />
-          <ImageFrame label="Final Showcase Placeholder" src={imageAt(8)} />
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+              Design process
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              {project.designProcess}
+            </p>
+            <ImageRow sources={processImages} labelPrefix="Process visual" />
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+              The solution
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              {project.solution}
+            </p>
+            <ImageRow sources={solutionImages} labelPrefix="Solution visual" />
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+              Key features
+            </h2>
+            <div className="mt-4 grid gap-6 md:grid-cols-2">
+              {project.keyFeatures.map((feature) => (
+                <div key={feature.title} className="space-y-2">
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-gray-700">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
+              Impact & results
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              {project.impact}
+            </p>
+            <ImageRow sources={impactImages} labelPrefix="Impact visual" />
+          </div>
         </section>
 
       </div>

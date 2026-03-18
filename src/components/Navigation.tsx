@@ -22,8 +22,8 @@ export function Navigation() {
           <img
             src="/nav-logo.png"
             alt=""
-            className="h-16 w-auto shrink-0 object-contain md:h-20"
-            style={{ transform: 'translateY(6px)', transformOrigin: 'left center' }}
+            className="h-8 w-auto shrink-0 object-contain md:h-10"
+            style={{ transform: 'translateY(4px) scale(3)', transformOrigin: 'left center' }}
           />
         </Link>
 

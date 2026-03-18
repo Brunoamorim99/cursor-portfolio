@@ -42,12 +42,8 @@ export function HomePage() {
           style={{ fontFamily: '"Pachang", sans-serif' }}
           className="text-[clamp(3.5rem,12vw,9rem)] leading-[0.95] tracking-tight font-extrabold text-[var(--text)]"
         >
-          <span
-            style={{ fontFamily: '"Manrope", sans-serif' }}
-            className="mb-2 block text-[clamp(1.2rem,3vw,2rem)] font-normal"
-          >
-            Hi, I&apos;m
-          </span>
+          Hi, I&apos;m
+          <br />
           Bruno
           <br />
           Amorim
